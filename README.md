@@ -2,37 +2,40 @@
 The input of the function should be a list containing 9 digits. The function should convert the list into a 3 x 3 Numpy array, and then return a dictionary containing the mean, variance, standard deviation, max, min, and sum along both axes and for the flattened matrix.
 
 
-import numpy as np
+# Mean-Variance-Standard Deviation Calculator
 
-def calculate(lst):
-    # Check if the list contains 9 elements
-    if len(lst) != 9:
-        raise ValueError("List must contain nine numbers.")
-    
-    # Convert the list into a 3x3 Numpy array
-    matrix = np.array(lst).reshape(3, 3)
-    
-    # Calculate statistics
-    calculations = {
-        'mean': [matrix.mean(axis=0).tolist(), matrix.mean(axis=1).tolist(), matrix.mean().tolist()],
-        'variance': [matrix.var(axis=0).tolist(), matrix.var(axis=1).tolist(), matrix.var().tolist()],
-        'standard deviation': [matrix.std(axis=0).tolist(), matrix.std(axis=1).tolist(), matrix.std().tolist()],
-        'max': [matrix.max(axis=0).tolist(), matrix.max(axis=1).tolist(), matrix.max().tolist()],
-        'min': [matrix.min(axis=0).tolist(), matrix.min(axis=1).tolist(), matrix.min().tolist()],
-        'sum': [matrix.sum(axis=0).tolist(), matrix.sum(axis=1).tolist(), matrix.sum().tolist()]
-    }
-    
-    return calculations
+This project is a Python program that calculates the **mean**, **variance**, **standard deviation**, **max**, **min**, and **sum** of the rows, columns, and all elements of a 3x3 matrix. It uses **NumPy** for efficient array operations.
 
-Here's a example of output
-##print(calculate([0, 1, 2, 3, 4, 5, 6, 7, 8]))
-'''{
-  'mean': [[3.0, 4.0, 5.0], [1.0, 4.0, 7.0], 4.0],
-  'variance': [[6.0, 6.0, 6.0], [0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 6.666666666666667],
-  'standard deviation': [[2.449489742783178, 2.449489742783178, 2.449489742783178], [0.816496580927726, 0.816496580927726, 0.816496580927726], 2.581988897471611],
-  'max': [[6, 7, 8], [2, 5, 8], 8],
-  'min': [[0, 1, 2], [0, 3, 6], 0],
-  'sum': [[9, 12, 15], [3, 12, 21], 36]
-}'''
+## Project Overview
+
+The function `calculate()` takes a list of 9 numbers as input, converts it into a 3x3 NumPy array, and returns a dictionary with the calculated statistics for each axis (rows and columns) as well as for the entire flattened matrix.
+
+### Example Input:
+
+```python
+calculate([0, 1, 2, 3, 4, 5, 6, 7, 8])
+```
+
+Features
+1-Converts a list of 9 numbers into a 3x3 matrix.
+2-Computes statistics along both axes (rows and columns) and for the entire matrix.
+3-Handles invalid inputs by raising a ValueError if the input list does not contain exactly 9 elements.
 
 
+Technologies Used
+1-Python: For the core implementation.
+2-NumPy: Used for efficient matrix operations and statistical calculations.
+
+Function Details
+calculate(lst)
+--  Input: A list of 9 numerical values.
+--  Output: A dictionary with the following keys:
+1-'mean': Mean values along axis 0, axis 1, and flattened matrix.
+2-'variance': Variance values along axis 0, axis 1, and flattened matrix.
+3-'standard deviation': Standard deviation values along axis 0, axis 1, and flattened matrix.
+4-'max': Maximum values along axis 0, axis 1, and flattened matrix.
+5-'min': Minimum values along axis 0, axis 1, and flattened matrix.
+6-'sum': Sum values along axis 0, axis 1, and flattened matrix.
+
+Error Handling
+-- If the input list does not contain exactly 9 elements, the function raises a ValueError with the message: "List must contain nine numbers."
